@@ -6,9 +6,13 @@ Built with Object-Oriented Programming (OOP) principles, this project makes it e
 ## ✨ Key Features
 
 ✅ Add Books – Store books with title and author.
+
 ✅ Borrow Books – Borrow available books.
+
 ✅ Return Books – Return borrowed books.
+
 ✅ Smart Validation – Prevents double borrowing or returning non-existent books.
+
 ✅ Easy-to-Extend – Designed with OOP for future scalability.
 
 ## 🛠️ Tech Stack
