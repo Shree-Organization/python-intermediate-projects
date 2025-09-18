@@ -3,7 +3,7 @@
 A collection of beginner to intermediate-level Python projects that cover various domains like web scraping, data visualization, management systems, API integration, and more.
 
 ## 📁 Project List
-🔗 API Integration
+🔗 [API Integration](API Integration.py/)
 
 Integrates external APIs to fetch and display real-time data.
 
