@@ -33,7 +33,7 @@ python library_management.py
 ```
 
 🧑‍💻 Example Usage
-```
+```python
 # Create a library instance
 library = Library()
 
