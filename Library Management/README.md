@@ -66,9 +66,13 @@ library-management/
 ## 🚀 Future Improvements
 
 🔹 Track multiple copies of a book.
+
 🔹 Support search by author/title.
+
 🔹 Add a user system (track who borrowed what).
+
 🔹 Save/load data to JSON/CSV.
+
 🔹 Create a GUI (Tkinter/PyQt) or Web App (Flask/Django).
 
 ## 👨‍💻 Author
