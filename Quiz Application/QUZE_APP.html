@@ -1,0 +1,570 @@
+<!-- complete HTML file with CSS and JavaScript that implements a quiz application with OOP concepts.
+
+Let me think about the structure:
+
+I'll need a Question class to represent individual questions
+I'll need a Quiz class to manage the quiz flow and scoring
+I'll need to create a UI that displays questions, handles user input, and shows results
+I'll use modern CSS for styling
+I'll use JavaScript classes for the OOP implementation
+The quiz should have:
+
+Multiple choice questions
+Score tracking
+Progress indication
+Results display
+Restart functionality
+I'll create a clean, modern UI with good visual feedback.
+
+quiz_app.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            background: #f0f0f0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-container {
+            margin: 30px 0;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .options-container {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .option.correct {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        .option.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .results-container {
+            display: none;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .result-message {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .feedback {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .feedback h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feedback-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .feedback-item:last-child {
+            border-bottom: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🧠 Knowledge Quiz</h1>
+            <p>Test your knowledge with this interactive quiz!</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div id="quiz-content">
+            <div class="question-container" id="question-container">
+                <div class="question-text" id="question-text"></div>
+                <div class="options-container" id="options-container"></div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prev-btn" disabled>Previous</button>
+                <button class="btn btn-primary" id="next-btn">Next Question</button>
+            </div>
+        </div>
+
+        <div class="results-container" id="results-container">
+            <h2>Quiz Completed! 🎉</h2>
+            <div class="score-display" id="score-display"></div>
+            <div class="result-message" id="result-message"></div>
+            
+            <div class="feedback" id="feedback">
+                <h3>Question Review:</h3>
+                <div id="feedback-items"></div>
+            </div>
+            
+            <button class="btn btn-primary" id="restart-btn">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <script>
+        // Question Class
+        class Question {
+            constructor(text, options, correctAnswer) {
+                this.text = text;
+                this.options = options;
+                this.correctAnswer = correctAnswer;
+                this.userAnswer = null;
+            }
+
+            checkAnswer(answer) {
+                this.userAnswer = answer;
+                return answer === this.correctAnswer;
+            }
+        }
+
+        // Quiz Class
+        class Quiz {
+            constructor() {
+                this.questions = [];
+                this.currentQuestionIndex = 0;
+                this.score = 0;
+                this.initializeQuestions();
+            }
+
+            initializeQuestions() {
+                this.questions = [
+                    new Question(
+                        "What is the capital of France?",
+                        ["New delhi", "Mumbai", "Chennai", "Kolkata"],
+                        "New Delhi"
+                    ),
+                    new Question(
+                        "Which planet is known as the Red Planet?",
+                        ["Venus", "Mars", "Jupiter", "Saturn"],
+                        "Mars"
+                    ),
+                    new Question(
+                        "What is the largest mammal in the world?",
+                        ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+                        "Blue Whale"
+                    ),
+                    new Question(
+                        "Who painted the Mona Lisa?",
+                        ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+                        "Leonardo da Vinci"
+                    ),
+                    new Question(
+                        "What is the chemical symbol for gold?",
+                        ["Go", "Gd", "Au", "Ag"],
+                        "Au"
+                    ),
+                    new Question(
+                        "What is the chemical symbol for silver?",
+                        ["Go", "Gd", "Au", "Ag"],
+                        "Ag"
+                    ),
+                    new Question(
+                        "Who is writer of mahabharat?",
+                        ["Ved Vyas", "Maharshi Valmiki", "Aryabatta", "Rishi Durvasa"],
+                        "Ved Vyas"
+                    ),
+                    new Question(
+                        "Who is writter of Ramayan?",
+                        ["Ves Vyas", "Maharshi Valmiki", "Aryabatta", "Rishi Durvasa"],
+                        "Maharshi Valmiki"
+                    ),
+                    new Question(
+                        "Who is known as the Father of Computers?",
+                        ["Charles Babbage", "Alan Turing", "John von Neumann", "Steve Jobs"],
+                        "Charles Babbage"
+                        
+                    ),
+                    new Question(
+                        "Who wrote the play 'Hamlet'?",
+                        ["Charles Dickens", "Mark Twain", "William Shakespeare", "Jane Austen"],
+                        "William Shakespeare"
+                        
+                    ),
+                    new Question(
+                        "Who discovered gravity when an apple fell on his head?",
+                        ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla"],
+                        "Isaac Newton"
+                    ),
+                    new Question(
+                        "Which element has the chemical symbol 'O'",
+                        ["Oxygen", "Gold", "Silver", "Iron"],
+                        "Oxygen"
+                    ),
+                    new Question(
+                        "Who is called the 'Missile Man of India'?",
+                        ["A.P.J. Abdul Kalam", "Homi Bhabha", "C.V. Raman", "Vikram Sarabhai"],
+                        "A.P.J. Abdul Kalam"
+                    ),
+                    new Question(
+                        "Which is the smallest prime number?",
+                        ["0", "1", "2", "3"],
+                        "2"
+                    
+                    )
+                ];
+            }
+
+            getCurrentQuestion() {
+                return this.questions[this.currentQuestionIndex];
+            }
+
+            nextQuestion() {
+                if (this.currentQuestionIndex < this.questions.length - 1) {
+                    this.currentQuestionIndex++;
+                    return true;
+                }
+                return false;
+            }
+
+            previousQuestion() {
+                if (this.currentQuestionIndex > 0) {
+                    this.currentQuestionIndex--;
+                    return true;
+                }
+                return false;
+            }
+
+            submitAnswer(answer) {
+                const currentQuestion = this.getCurrentQuestion();
+                if (currentQuestion.checkAnswer(answer)) {
+                    this.score++;
+                }
+            }
+
+            isLastQuestion() {
+                return this.currentQuestionIndex === this.questions.length - 1;
+            }
+
+            getProgress() {
+                return ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
+            }
+
+            getResults() {
+                return {
+                    score: this.score,
+                    total: this.questions.length,
+                    percentage: Math.round((this.score / this.questions.length) * 100),
+                    questions: this.questions
+                };
+            }
+
+            restart() {
+                this.currentQuestionIndex = 0;
+                this.score = 0;
+                this.questions.forEach(question => {
+                    question.userAnswer = null;
+                });
+            }
+        }
+
+        // UI Controller Class
+        class QuizUI {
+            constructor() {
+                this.quiz = new Quiz();
+                this.initializeElements();
+                this.setupEventListeners();
+                this.displayQuestion();
+            }
+
+            initializeElements() {
+                this.questionText = document.getElementById('question-text');
+                this.optionsContainer = document.getElementById('options-container');
+                this.progressBar = document.getElementById('progress');
+                this.prevBtn = document.getElementById('prev-btn');
+                this.nextBtn = document.getElementById('next-btn');
+                this.quizContent = document.getElementById('quiz-content');
+                this.resultsContainer = document.getElementById('results-container');
+                this.scoreDisplay = document.getElementById('score-display');
+                this.resultMessage = document.getElementById('result-message');
+                this.feedbackItems = document.getElementById('feedback-items');
+                this.restartBtn = document.getElementById('restart-btn');
+            }
+
+            setupEventListeners() {
+                this.nextBtn.addEventListener('click', () => this.handleNext());
+                this.prevBtn.addEventListener('click', () => this.handlePrevious());
+                this.restartBtn.addEventListener('click', () => this.restartQuiz());
+            }
+
+            displayQuestion() {
+                const question = this.quiz.getCurrentQuestion();
+                this.questionText.textContent = question.text;
+                
+                this.optionsContainer.innerHTML = '';
+                question.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'option';
+                    if (question.userAnswer === option) {
+                        optionElement.classList.add('selected');
+                        if (question.userAnswer === question.correctAnswer) {
+                            optionElement.classList.add('correct');
+                        } else {
+                            optionElement.classList.add('incorrect');
+                        }
+                    }
+                    optionElement.textContent = option;
+                    optionElement.addEventListener('click', () => this.selectOption(option));
+                    this.optionsContainer.appendChild(optionElement);
+                });
+
+                this.updateNavigation();
+                this.updateProgress();
+            }
+
+            selectOption(option) {
+                const question = this.quiz.getCurrentQuestion();
+                if (!question.userAnswer) {
+                    this.quiz.submitAnswer(option);
+                    this.displayQuestion();
+                }
+            }
+
+            handleNext() {
+                if (this.quiz.isLastQuestion()) {
+                    this.showResults();
+                } else {
+                    this.quiz.nextQuestion();
+                    this.displayQuestion();
+                }
+            }
+
+            handlePrevious() {
+                this.quiz.previousQuestion();
+                this.displayQuestion();
+            }
+
+            updateNavigation() {
+                this.prevBtn.disabled = this.quiz.currentQuestionIndex === 0;
+                
+                if (this.quiz.isLastQuestion()) {
+                    this.nextBtn.textContent = 'Finish Quiz';
+                } else {
+                    this.nextBtn.textContent = 'Next Question';
+                }
+            }
+
+            updateProgress() {
+                this.progressBar.style.width = this.quiz.getProgress() + '%';
+            }
+
+            showResults() {
+                const results = this.quiz.getResults();
+                
+                this.scoreDisplay.textContent = `${results.score}/${results.total}`;
+                
+                let message = '';
+                if (results.percentage >= 80) {
+                    message = 'Excellent! You are a quiz master! 🌟';
+                } else if (results.percentage >= 60) {
+                    message = 'Good job! You know your stuff! 👍';
+                } else if (results.percentage >= 40) {
+                    message = 'Not bad! Keep learning! 📚';
+                } else {
+                    message = 'Keep practicing! You can do better! 💪';
+                }
+                this.resultMessage.textContent = message;
+
+                this.feedbackItems.innerHTML = '';
+                results.questions.forEach((question, index) => {
+                    const isCorrect = question.userAnswer === question.correctAnswer;
+                    const feedbackItem = document.createElement('div');
+                    feedbackItem.className = 'feedback-item';
+                    feedbackItem.innerHTML = `
+                        <strong>Q${index + 1}:</strong> ${question.text}<br>
+                        <strong>Your answer:</strong> <span style="color: ${isCorrect ? '#4CAF50' : '#f44336'}">${question.userAnswer || 'Not answered'}</span><br>
+                        <strong>Correct answer:</strong> ${question.correctAnswer}
+                    `;
+                    this.feedbackItems.appendChild(feedbackItem);
+                });
+
+                this.quizContent.classList.add('hidden');
+                this.resultsContainer.style.display = 'block';
+            }
+
+            restartQuiz() {
+                this.quiz.restart();
+                this.quizContent.classList.remove('hidden');
+                this.resultsContainer.style.display = 'none';
+                this.displayQuestion();
+            }
+        }
+
+        // Initialize the quiz when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new QuizUI();
+        });
+    </script>
+</body>
+</html>
+
