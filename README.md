@@ -17,7 +17,7 @@ Tech Stack: requests, REST APIs
     JSON parsing and error handling
     
     CLI or simple UI output
-
+---
 **🏦 Bank Management System**
 
 A simple command-line based system to manage banking operations.
@@ -31,7 +31,7 @@ Tech Stack: Python
     Deposit and withdraw funds
     
     Balance check and transaction log
-
+---
 **📊 Basic Data Visualization**
 
 Simple charts and graphs created from sample datasets.
@@ -45,7 +45,7 @@ Tech Stack: Matplotlib, Seaborn, Pandas
     Data loading from CSV
     
     Custom styling and labels
-
+---
 **🧮 Data Structures & Algorithms**
 
 Implementation of classic data structures and algorithms.
@@ -61,7 +61,7 @@ Tech Stack: Python
     Searching (binary, linear)
     
     Time complexity annotations
-
+---
 **📚 Library Management System**
 
 Manage books, users, and borrow/return history.
@@ -75,7 +75,7 @@ Tech Stack: Python, SQLite (optional), Tkinter (optional)
     Borrow and return books
     
     Maintain history per user
-
+---
 **💬 Motivation Application**
 
 Shows motivational quotes randomly or daily.
@@ -89,7 +89,7 @@ Tech Stack: Python, API or local DB
     Quote database or API
     
     GUI with Tkinter (optional)
-
+---
 **❓ Quiz Application**
 
 A multiple-choice quiz app with scoring.
@@ -103,7 +103,7 @@ Tech Stack: Python, Tkinter or CLI
     Track score and give feedback
     
     Timer (optional)
-
+---
 **📝 Student Mark Management System**
 
 Tracks marks, calculates grades and averages.
@@ -117,7 +117,7 @@ Tech Stack: Python, CSV or SQLite
     Grade calculation
 
     Summary reports
-
+---
 **🌐 Web Scraping Tool**
 
 Scrape websites to extract useful data.
