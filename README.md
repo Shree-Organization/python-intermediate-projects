@@ -3,7 +3,8 @@
 A collection of beginner to intermediate-level Python projects that cover various domains like web scraping, data visualization, management systems, API integration, and more.
 
 ## 📁 Project List
-🔗 [API Integration](API Integration.py/)
+
+**🔗 API Integration**
 
 Integrates external APIs to fetch and display real-time data.
 
@@ -17,7 +18,7 @@ Tech Stack: requests, REST APIs
     
     CLI or simple UI output
 
-🏦 Bank Management System
+**🏦 Bank Management System**
 
 A simple command-line based system to manage banking operations.
 
@@ -31,7 +32,7 @@ Tech Stack: Python
     
     Balance check and transaction log
 
-📊 Basic Data Visualization
+**📊 Basic Data Visualization**
 
 Simple charts and graphs created from sample datasets.
 
@@ -45,7 +46,7 @@ Tech Stack: Matplotlib, Seaborn, Pandas
     
     Custom styling and labels
 
-🧮 Data Structures & Algorithms
+**🧮 Data Structures & Algorithms**
 
 Implementation of classic data structures and algorithms.
 
@@ -61,7 +62,7 @@ Tech Stack: Python
     
     Time complexity annotations
 
-📚 Library Management System
+**📚 Library Management System**
 
 Manage books, users, and borrow/return history.
 
@@ -75,7 +76,7 @@ Tech Stack: Python, SQLite (optional), Tkinter (optional)
     
     Maintain history per user
 
-💬 Motivation Application
+**💬 Motivation Application**
 
 Shows motivational quotes randomly or daily.
 
@@ -89,7 +90,7 @@ Tech Stack: Python, API or local DB
     
     GUI with Tkinter (optional)
 
-❓ Quiz Application
+**❓ Quiz Application**
 
 A multiple-choice quiz app with scoring.
 
@@ -103,7 +104,7 @@ Tech Stack: Python, Tkinter or CLI
     
     Timer (optional)
 
-📝 Student Mark Management System
+**📝 Student Mark Management System**
 
 Tracks marks, calculates grades and averages.
 
@@ -117,7 +118,7 @@ Tech Stack: Python, CSV or SQLite
 
     Summary reports
 
-🌐 Web Scraping Tool
+**🌐 Web Scraping Tool**
 
 Scrape websites to extract useful data.
 
@@ -156,10 +157,10 @@ Learn by building
 Improve understanding of files, APIs, GUIs, and more
 
 ## 👨‍💻 Author
-Mantra Patil
+**Mantra Patil**
 
 💼 LinkedIn: www.linkedin.com/in/mantrapatil25
 
 ✉ Email: techmantrapatil@gmail.com
 
-✨ Thanks for visiting my profile! ✨
+***✨ Thanks for visiting my profile! ✨***
