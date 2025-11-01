@@ -128,4 +128,4 @@ bank-management/
 
 Crafted with 💡 & 💻 by Mantra Patil
 
-*👉 Pro Tip: This project is great for learning Python OOP and can be extended into a real-world digital banking simulator.*
+**👉 Pro Tip: This project is great for learning Python OOP and can be extended into a real-world digital banking simulator.**
