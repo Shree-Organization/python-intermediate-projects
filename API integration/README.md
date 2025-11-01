@@ -101,9 +101,7 @@ if new_resource:
 ## 📝 Logging & Error Handling
 
 - Logs every request with method, URL, and attempt number.
-
 - Automatically retries failed requests up to **3 times** with a **2-second delay**.
-
 - Logs success, warnings, and errors to the console.
 
 
@@ -113,9 +111,7 @@ if new_resource:
 ## 💡 Extending the Script
 
 - Change endpoint paths to match your API structure.
-
 - Add additional helper functions for other endpoints.
-
 - Integrate with CLI or web frameworks for automation.
 
 
@@ -125,5 +121,4 @@ if new_resource:
 📌 Notes
 
 - Ensure your API key and base URL are correct.
-
 - Adjust `retries` or `time.sleep` delay as needed for your API rate limits.
