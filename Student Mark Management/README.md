@@ -5,23 +5,17 @@ This system allows users to add, view, search, update, and delete student data e
 
 ## 🚀 Features
 
-Add new student records (ID, Name, Marks).
-
-View all student records in a tabular format.
-
-Search students by ID.
-
-Update student marks with validation (0–100).
-
-Delete student records.
-
-Input validation for duplicate IDs and invalid marks.
+- Add new student records (ID, Name, Marks).
+- View all student records in a tabular format.
+- Search students by ID.
+- Update student marks with validation (0–100).
+- Delete student records.
+- Input validation for duplicate IDs and invalid marks.
 
 ## 🛠️ Technologies Used
 
-Python 3
-
-Built-in Data Structures (list, dict)
+- Python 3
+- Built-in Data Structures (list, dict)
 
 ## 📖 Usage
 1️⃣ Run the Program
@@ -71,15 +65,11 @@ ID        Name                 Marks
 
 ## 🔮 Possible Enhancements
 
-1. Save/load student data to/from a CSV/JSON file for persistence.
-
-2. Add validation for student names.
-
-3. Support for multiple subjects and marks per subject.
-
-4. Implement sorting and filtering options.
-
-5. Build a GUI interface (Tkinter, PyQt, etc.).
+- 1. Save/load student data to/from a CSV/JSON file for persistence.
+- 2. Add validation for student names.
+- 3. Support for multiple subjects and marks per subject.
+- 4. Implement sorting and filtering options.
+- 5. Build a GUI interface (Tkinter, PyQt, etc.).
 
 ## 👨‍💻 Author
 
