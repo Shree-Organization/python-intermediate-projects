@@ -20,16 +20,11 @@ Stay inspired with random quotes, add your own, track your history, and even lis
 Language: Python 3
 
 Libraries:
-
-json (store quotes)
-
-random (pick quotes)
-
-datetime (timestamps)
-
-os (file handling)
-
-pyttsx3 (text-to-speech)
+- json (store quotes)
+- random (pick quotes)
+- datetime (timestamps)
+- os (file handling)
+- pyttsx3 (text-to-speech)
 
 ## ⚡ Installation
 
