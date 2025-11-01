@@ -67,9 +67,6 @@ python data_visualization.py
 
     - *`pie_chart.png`* → Sales distribution
 
-
-
-
 ---
 
 ## 🔧 Visualizations Explained
@@ -83,20 +80,14 @@ python data_visualization.py
 | Pie Chart     | Shows percentage contribution of each month’s sales     |
 
 
-
-
 ---
 
 ## 📈 Example Insights
 
 - Which month had the **highest sales**
-
 - How **profit relates to sales**
-
 - **Trends** in expenses over time
-
 - **Distribution** of sales across months
-
 - **Correlation** between metrics to identify patterns
 
 
@@ -106,23 +97,15 @@ python data_visualization.py
 ## 💡 Extending the Script
 
 - Replace sample data with **real datasets**
-
 - Add **new columns** to visualize additional metrics
-
 - Customize **Seaborn/Matplotlib styles** for better aesthetics
-
 - Integrate into **Jupyter Notebooks** for interactive analysis
-
-
 
 ---
 
 ## 📌 Notes
 
 - Ensure `Month` column is **categorical** or properly sorted for meaningful plots.
-
 - Adjust figure size, palette, or plot type based on dataset and requirements.
-
-
 
 ---
