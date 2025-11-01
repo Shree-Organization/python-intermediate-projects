@@ -5,31 +5,22 @@ Challenge yourself with multiple-choice questions, track your score, and receive
 
 ## 🌟 Features
 
-✨ Multiple-Choice Questions – Every question has 4 possible answers.
-
-✨ Score Tracking – Calculates and displays your total score.
-
-✨ Performance Feedback – Get motivational results at the end.
-
-✨ Question Navigation – Option to move to the next question.
-
-✨ Restart Capability – Replay the quiz anytime.
-
-✨ Extendable – Easily add new questions.
+- ✨ Multiple-Choice Questions – Every question has 4 possible answers.
+- ✨ Score Tracking – Calculates and displays your total score.
+- ✨ Performance Feedback – Get motivational results at the end.
+- ✨ Question Navigation – Option to move to the next question.
+- ✨ Restart Capability – Replay the quiz anytime.
+- ✨ Extendable – Easily add new questions.
 
 ## 🛠️ Tech Stack
 
 Language: Python 3.x
 
 Core Concepts:
-
-Classes & Objects
-
-Encapsulation
-
-User Input Handling
-
-Score Calculation
+- Classes & Objects
+- Encapsulation
+- User Input Handling
+- Score Calculation
 
 CLI-based User Interface
 
@@ -50,13 +41,10 @@ cd quiz-app
 
 🎮 How to Play
 
-The app will display a question with 4 options.
-
-Enter your answer (e.g., Paris or 3).
-
-After each question, decide whether to continue or stop.
-
-At the end, see your score, percentage, and feedback.
+- The app will display a question with 4 options.
+- Enter your answer (e.g., Paris or 3).
+- After each question, decide whether to continue or stop.
+- At the end, see your score, percentage, and feedback.
 
 ## 📖 Example Gameplay
 ```
@@ -94,17 +82,12 @@ quiz-app/
 
 ## 🚀 Future Enhancements
 
-🔹 Add timer per question ⏳
-
-🔹 Randomize question order 🎲
-
-🔹 Load questions from JSON/CSV file 📂
-
-🔹 Add categories & difficulty levels 🎯
-
-🔹 Create a GUI version (Tkinter / PyQt) 🖥️
-
-🔹 Build a Web App version with Flask/Django 🌍
+- 🔹 Add timer per question ⏳
+- 🔹 Randomize question order 🎲
+- 🔹 Load questions from JSON/CSV file 📂
+- 🔹 Add categories & difficulty levels 🎯
+- 🔹 Create a GUI version (Tkinter / PyQt) 🖥️
+- 🔹 Build a Web App version with Flask/Django 🌍
 
 
 ## 🙌 Contribution
