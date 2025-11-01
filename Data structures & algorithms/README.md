@@ -51,12 +51,6 @@ print(is_balanced("((()))[{}]]"))      # False
 print(is_balanced("a + (b * c) - {d / [e + f]}")) # True
 print(is_balanced("((a + b) * (c - d)"))  # False
 ```
-
-## 📝 Test Cases Explained
-
-
-
-
 ---
 
 ## 📊 Complexity Analysis
