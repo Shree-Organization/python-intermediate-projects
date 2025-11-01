@@ -65,37 +65,21 @@ print(is_balanced("((a + b) * (c - d)"))  # False
 
 - **Space Complexity**: O(n) → Worst-case stack size (all opening symbols)
 
-
-
 ---
 
 ## 💡 Why This Is Useful
 
 - Core **DSA concept**: Stack
-
 - Common in **parsing, compiler design, expression evaluation**
-
 - Often asked in **technical interviews**
-
 - Foundation for more **advanced algorithms** like infix-to-postfix conversion
-
-
-
 ---
 
 ## 🛠 Extending the Script
 
 - Add support for **custom symbols**
-
 - Integrate into **expression evaluators** or **mini calculators**
-
 - Visualize **stack operations** for educational purposes
-
 - Combine with **queues or trees** for complex parsing algorithms
 
-
-
 ---
-
-
-
