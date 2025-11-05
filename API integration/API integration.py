@@ -16,7 +16,6 @@ HEADERS = {
     "Accept": "application/json"
 }
 
-
 def send_request(method, endpoint, payload=None, params=None, retries=3):
     """
     Send a request to the API with retries and error handling.
@@ -92,3 +91,4 @@ if __name__ == "__main__":
     if new_resource:
         deleted = delete_resource(new_resource.get("id"))
         print("Deleted:", deleted)
+
