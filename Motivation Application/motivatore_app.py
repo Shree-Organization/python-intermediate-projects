@@ -61,7 +61,7 @@ def show_history():
             for line in f:
                 print(line.strip())
 
-# --- Main Program ---
+# --- Main Program --
 def main():
     while True:
         print("\n--- 🌞 Daily Motivation CLI App ---")
@@ -93,3 +93,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
