@@ -20,7 +20,6 @@ class Question:
         self.user_answer = answer
         return answer == self.correct_answer
 
-
 class Quiz:
     def __init__(self):
         self.questions = []
@@ -116,3 +115,4 @@ class QuizUI:
 # Start the quiz application
 if __name__ == "__main__":
     QuizUI()
+
